@@ -17,14 +17,11 @@ class CategoryListing extends StatelessWidget {
             'Diabetes Care',
             textAlign: TextAlign.start,
           ),
-          leading: Builder(builder: (BuildContext context) {
-            return IconButton(
-              onPressed: () {
+          leading: GestureDetector(
+              onTap: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(Icons.arrow_back),
-            );
-          }),
+              child: Icon(Icons.arrow_back)),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -111,10 +108,16 @@ class CategoryListing extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        products(
-                          'accu_check',
-                          'Accu-check Active\nTest Strip',
-                          112,
+                        InkWell(
+                          onTap: (){
+                            Navigator.pushNamed(
+                                context, ProductDetails.routename);
+                          },
+                          child: products(
+                            'accu_check',
+                            'Accu-check Active\nTest Strip',
+                            112,
+                          ),
                         ),
                         const SizedBox(
                           width: 20,
@@ -137,18 +140,30 @@ class CategoryListing extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        products(
-                          'accu_check_1',
-                          'Accu-check Active\nTest Strip',
-                          112,
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, ProductDetails.routename);
+                          },
+                          child: products(
+                            'accu_check_1',
+                            'Accu-check Active\nTest Strip',
+                            112,
+                          ),
                         ),
                         const SizedBox(
                           width: 20,
                         ),
-                        products(
-                          'omron_hem_1',
-                          'Omron HEM-8712\nBP Monitor',
-                          150,
+                        InkWell(
+                          onTap: (){
+                            Navigator.pushNamed(
+                                context, ProductDetails.routename);
+                          },
+                          child: products(
+                            'omron_hem_1',
+                            'Omron HEM-8712\nBP Monitor',
+                            150,
+                          ),
                         ),
                       ],
                     ),

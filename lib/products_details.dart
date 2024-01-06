@@ -25,14 +25,11 @@ class _ProductDetailsState extends State<ProductDetails> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.arrow_back),
-              );
-            },
-          ),
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back)),
           actions: [
             Row(
               children: [

@@ -31,12 +31,11 @@ class _CheckoutState extends State<Checkout> {
             style: TextStyle(fontFamily: 'Overpass-bold'),
             textAlign: TextAlign.start,
           ),
-          leading: Builder(builder: (BuildContext context) {
-            return IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.arrow_back),
-            );
-          }),
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back)),
         ),
         body: SingleChildScrollView(
           child: Padding(

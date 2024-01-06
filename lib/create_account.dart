@@ -18,14 +18,11 @@ class _CreateAccountState extends State<CreateAccount> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: Builder(builder: (BuildContext context) {
-            return IconButton(
-              onPressed: () {
+          leading: GestureDetector(
+              onTap: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(Icons.arrow_back),
-            );
-          }),
+              child: Icon(Icons.arrow_back)),
         ),
         body: SingleChildScrollView(
           child: Padding(

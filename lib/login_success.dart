@@ -19,14 +19,11 @@ class _LoginSuccessState extends State<LoginSuccess> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: Builder(builder: (BuildContext context) {
-            return IconButton(
-              onPressed: () {
+          leading: GestureDetector(
+              onTap: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(Icons.arrow_back),
-            );
-          }),
+              child: Icon(Icons.arrow_back)),
         ),
         body: Padding(
           padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 Widget blueButton(String text, {VoidCallback? onPressed}) {
   return InkWell(
     onTap: onPressed,
-    child: Ink(
+    child: Container(
       width: double.infinity,
       height: 60,
       decoration: BoxDecoration(

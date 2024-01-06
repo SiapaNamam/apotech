@@ -1,4 +1,6 @@
+import 'package:apotech/app.dart';
 import 'package:apotech/checkout.dart';
+import 'package:apotech/home.dart';
 import 'package:apotech/widgets/widget_blue_button.dart';
 import 'package:apotech/widgets/cart/widget_cart.dart';
 import 'package:apotech/widgets/cart/widget_payment_summary.dart';
@@ -28,12 +30,11 @@ class _CartState extends State<Cart> {
             style: TextStyle(fontFamily: 'Overpass-bold'),
             textAlign: TextAlign.start,
           ),
-          leading: Builder(builder: (BuildContext context) {
-            return IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.arrow_back),
-            );
-          }),
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back)),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -52,7 +53,9 @@ class _CartState extends State<Cart> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppHome.routename);
+                      },
                       child: const Text(
                         '+ Add More',
                         textAlign: TextAlign.end,
