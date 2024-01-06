@@ -29,9 +29,7 @@ class _AppHomeState extends State<AppHome> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         body: _tabs[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           items: [
@@ -68,7 +66,6 @@ class _AppHomeState extends State<AppHome> {
             });
           },
         ),
-      ),
     );
   }
 }

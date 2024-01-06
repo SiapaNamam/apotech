@@ -1,3 +1,5 @@
+import 'package:apotech/app.dart';
+import 'package:apotech/home.dart';
 import 'package:apotech/login.dart';
 import 'package:apotech/widgets/widget_blue_button.dart';
 import 'package:apotech/widgets/walkthrough/widget_walkthrough.dart';
@@ -33,9 +35,9 @@ class _SuccessState extends State<Success> {
               ),
               InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, LoginScreen.routename);
+                    Navigator.pushNamed(context,AppHome.routename);
                   },
-                  child: blueButton('CONTINUE ORDER'))
+                  child: blueButton('CONTINUE ORDER'),)
             ],
           ),
         ),

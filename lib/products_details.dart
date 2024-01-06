@@ -1,3 +1,4 @@
+import 'package:apotech/cart.dart';
 import 'package:apotech/widgets/products_detail/widget_comment.dart';
 import 'package:apotech/widgets/products_detail/widget_rating.dart';
 import 'package:apotech/widgets/products_detail/widget_size.dart';
@@ -127,12 +128,17 @@ class _ProductDetailsState extends State<ProductDetails> {
                             const SizedBox(
                               width: 5,
                             ),
-                            Text(
-                              'Add to cart',
-                              style: TextStyle(
-                                  fontFamily: 'Overpass-reguar',
-                                  color: const Color(0xff006AFF)
-                                      .withOpacity(0.45)),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, Cart.routename);
+                              },
+                              child: Text(
+                                'Add to cart',
+                                style: TextStyle(
+                                    fontFamily: 'Overpass-reguar',
+                                    color: const Color(0xff006AFF)
+                                        .withOpacity(0.45)),
+                              ),
                             )
                           ],
                         )
