@@ -1,8 +1,7 @@
 import 'package:apotech/login.dart';
-import 'package:apotech/widgets/widget_blue_button.dart';
 import 'package:apotech/widgets/otp/widget_otp.dart';
+import 'package:apotech/widgets/widget_blue_button.dart';
 import 'package:flutter/material.dart';
-
 
 class VerifyOtp extends StatefulWidget {
   static const routname = '/verify_otp';
@@ -23,7 +22,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(Icons.arrow_back)),
+              child: const Icon(Icons.arrow_back)),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -48,11 +47,8 @@ class _VerifyOtpState extends State<VerifyOtp> {
                 const SizedBox(
                   height: 15,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    for (int i = 0; i < 6; i++) otp('0'),
-                  ],
+                OTPInput(
+                  onSubmitted: (otp) {},
                 ),
                 const SizedBox(
                   height: 35,

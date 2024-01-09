@@ -4,9 +4,6 @@ import 'package:apotech/widgets/widget_blue_button.dart';
 import 'package:apotech/widgets/checkout/widget_payment.dart';
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
-  runApp(Checkout());
-}
 
 class Checkout extends StatefulWidget {
   static const routename = '/checkout';
@@ -17,8 +14,8 @@ class Checkout extends StatefulWidget {
 }
 
 class _CheckoutState extends State<Checkout> {
-  String? selectedAddress;
-  String? selectedPayment;
+  String? selectedAddress = 'Home';
+  String? selectedPayment = 'Credit card';
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +32,7 @@ class _CheckoutState extends State<Checkout> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(Icons.arrow_back)),
+              child: const Icon(Icons.arrow_back)),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -95,7 +92,7 @@ class _CheckoutState extends State<Checkout> {
                     });
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 AddressWidget(
@@ -112,7 +109,7 @@ class _CheckoutState extends State<Checkout> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(),
+                    const SizedBox(),
                     TextButton(
                       onPressed: () {},
                       child: const Text(
@@ -132,12 +129,12 @@ class _CheckoutState extends State<Checkout> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    width: 400,
+                    width: double.infinity,
                     height: 250,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(
-                        color: Color(0xff090F47).withOpacity(0.1),
+                        color: const Color(0xff090F47).withOpacity(0.1),
                       ),
                     ),
                     child: Padding(
@@ -155,7 +152,7 @@ class _CheckoutState extends State<Checkout> {
                               });
                             },
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           PaymentWidget(
                             logo: 'paypal',
                             judul: 'Paypal',
@@ -166,7 +163,7 @@ class _CheckoutState extends State<Checkout> {
                               });
                             },
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           PaymentWidget(
                             logo: 'google',
                             judul: 'Google Pay',
@@ -177,7 +174,7 @@ class _CheckoutState extends State<Checkout> {
                               });
                             },
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           PaymentWidget(
                             logo: 'apple',
                             judul: 'Apple Pay',
@@ -193,7 +190,7 @@ class _CheckoutState extends State<Checkout> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 InkWell(
@@ -201,7 +198,7 @@ class _CheckoutState extends State<Checkout> {
                       Navigator.pushNamed(context, Success.routename);
                     },
                     child: blueButton('Pay Now Rp 185.000')),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
               ],

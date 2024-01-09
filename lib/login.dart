@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(Icons.arrow_back)),
+              child: const Icon(Icons.arrow_back)),
         ),
         body: SingleChildScrollView(
           child: Padding(

@@ -43,7 +43,7 @@ class _AddressWidgetState extends State<AddressWidget> {
               children: [
                 Radio(
                   value: widget.tempat,
-                  activeColor: Color(0xff4157FF),
+                  activeColor: const Color(0xff4157FF),
                   groupValue: widget.isSelected ? widget.tempat : null,
                   onChanged: (value) {
                     widget.onSelected();

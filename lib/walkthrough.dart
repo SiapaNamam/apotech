@@ -1,20 +1,24 @@
+import 'package:flutter/material.dart';
 import 'package:apotech/welcome.dart';
 import 'package:apotech/widgets/walkthrough/widget_walkthrough.dart';
-import 'package:flutter/material.dart';
-
-void main(List<String> args) {
-  runApp(Walkthrough());
-}
 
 class Walkthrough extends StatefulWidget {
-  const Walkthrough({super.key});
+  const Walkthrough({Key? key}) : super(key: key);
 
   @override
   State<Walkthrough> createState() => _WalkthroughState();
 }
 
 class _WalkthroughState extends State<Walkthrough> {
+  late PageController _pageController;
   int imageIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: imageIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,6 +30,12 @@ class _WalkthroughState extends State<Walkthrough> {
             children: [
               Expanded(
                 child: PageView(
+                  controller: _pageController,
+                  onPageChanged: (index) {
+                    setState(() {
+                      imageIndex = index;
+                    });
+                  },
                   children: [
                     walkthrought(
                         'assets/walkthrough/walkthrough_1.png',
@@ -50,10 +60,15 @@ class _WalkthroughState extends State<Walkthrough> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Skip',
-                      style: TextStyle(
-                          color: const Color(0xff090F47).withOpacity(0.45)),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Welcome.routname);
+                      },
+                      child: Text(
+                        'Skip',
+                        style: TextStyle(
+                            color: const Color(0xff090F47).withOpacity(0.45)),
+                      ),
                     ),
                     SizedBox(
                       width: 30,
@@ -64,19 +79,22 @@ class _WalkthroughState extends State<Walkthrough> {
                             Container(
                               width: 5,
                               height: 5,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
                               color: i == imageIndex
                                   ? const Color(0xff4157FF)
                                   : const Color(0xffC4C4C4),
+                              ),
                             ),
                         ],
                       ),
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         if (imageIndex < 2) {
-                          setState(() {
-                            imageIndex++;
-                          });
+                          _pageController.nextPage(
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.ease);
                         } else {
                           Navigator.pushNamed(context, Welcome.routname);
                         }

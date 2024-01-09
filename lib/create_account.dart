@@ -12,6 +12,9 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
+  bool isPasswordVisible = false;
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +25,7 @@ class _CreateAccountState extends State<CreateAccount> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(Icons.arrow_back)),
+              child: const Icon(Icons.arrow_back)),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -77,15 +80,24 @@ class _CreateAccountState extends State<CreateAccount> {
                   height: 20,
                 ),
                 TextField(
+                  controller: passwordController,
+                  obscureText: isPasswordVisible,
                   decoration: InputDecoration(
                     hintText: 'Password',
                     hintStyle: TextStyle(
                         fontFamily: 'Arial',
                         fontSize: 20,
                         color: const Color(0xff090F47).withOpacity(0.45)),
-                    suffixIcon: Icon(
-                      Icons.remove_red_eye_outlined,
+                    suffixIcon: IconButton(
+                      icon: Icon(isPasswordVisible
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined),
                       color: const Color(0xff090F47).withOpacity(0.45),
+                      onPressed: () {
+                        setState(() {
+                          isPasswordVisible = !isPasswordVisible;
+                        });
+                      },
                     ),
                   ),
                 ),
@@ -93,11 +105,11 @@ class _CreateAccountState extends State<CreateAccount> {
                   height: 60,
                 ),
                 InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, VerifyOtp.routname);
-                    },
-                    child: blueButton('CREATE ACCOUNT'),
-                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, VerifyOtp.routname);
+                  },
+                  child: blueButton('CREATE ACCOUNT'),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

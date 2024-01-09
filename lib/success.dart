@@ -1,6 +1,4 @@
 import 'package:apotech/app.dart';
-import 'package:apotech/home.dart';
-import 'package:apotech/login.dart';
 import 'package:apotech/widgets/widget_blue_button.dart';
 import 'package:apotech/widgets/walkthrough/widget_walkthrough.dart';
 import 'package:flutter/material.dart';

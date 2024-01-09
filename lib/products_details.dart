@@ -6,7 +6,7 @@ import 'package:apotech/widgets/widget_blue_button.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
-  runApp(const ProductDetails());
+  runApp(ProductDetails());
 }
 
 class ProductDetails extends StatefulWidget {
@@ -18,9 +18,17 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+  int imageIndex = 0;
+  int activeIndex = 0;
+
+  void _onSizeTapped(int index) {
+    setState(() {
+      activeIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    int imageIndex = 0;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -29,16 +37,21 @@ class _ProductDetailsState extends State<ProductDetails> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(Icons.arrow_back)),
+              child: const Icon(Icons.arrow_back)),
           actions: [
             Row(
               children: [
                 Image.asset('assets/product_details/notification.png'),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Image.asset('assets/product_details/cart.png'),
-                SizedBox(
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Cart.routename);
+                  },
+                  child: Image.asset('assets/product_details/cart.png'),
+                ),
+                const SizedBox(
                   width: 10,
                 ),
               ],
@@ -63,7 +76,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontFamily: 'Overpass-regular',
                             fontSize: 14,
                             color: const Color(0xff090F47).withOpacity(0.45))),
-                    Container(
+                    SizedBox(
                       height: 155,
                       child: PageView(
                         onPageChanged: (index) {
@@ -129,12 +142,18 @@ class _ProductDetailsState extends State<ProductDetails> {
                               onTap: () {
                                 Navigator.pushNamed(context, Cart.routename);
                               },
-                              child: Text(
-                                'Add to cart',
-                                style: TextStyle(
-                                    fontFamily: 'Overpass-reguar',
-                                    color: const Color(0xff006AFF)
-                                        .withOpacity(0.45)),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushNamed(Cart.routename);
+                                },
+                                child: Text(
+                                  'Add to cart',
+                                  style: TextStyle(
+                                      fontFamily: 'Overpass-reguar',
+                                      color: const Color(0xff006AFF)
+                                          .withOpacity(0.45)),
+                                ),
                               ),
                             )
                           ],
@@ -165,15 +184,30 @@ class _ProductDetailsState extends State<ProductDetails> {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: [
-                          size('252.000', '500', true),
+                          Size(
+                            harga: '252.000',
+                            jumlah: '500',
+                            active: activeIndex == 0,
+                            onTap: (isActive) => _onSizeTapped(0),
+                          ),
                           const SizedBox(
                             width: 15,
                           ),
-                          size('100.000', '500', false),
+                          Size(
+                            harga: '100.000',
+                            jumlah: '500',
+                            active: activeIndex == 1,
+                            onTap: (isActive) => _onSizeTapped(1),
+                          ),
                           const SizedBox(
                             width: 15,
                           ),
-                          size('160.000', '500', false),
+                          Size(
+                            harga: '160.000',
+                            jumlah: '500',
+                            active: activeIndex == 2,
+                            onTap: (isActive) => _onSizeTapped(2),
+                          ),
                         ],
                       ),
                     ),
@@ -229,7 +263,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ],
                           ),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Container(
                           height: 100,
                           decoration: BoxDecoration(
@@ -241,7 +275,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -254,17 +288,17 @@ class _ProductDetailsState extends State<ProductDetails> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 40),
+                    const SizedBox(height: 40),
                     Column(
                       children: [
                         comment('Lorem Hoffman', '05-oct 2023', 4.2,
                             'Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi ut nisi odio. Nulla facilisi.Nunc risus massa, gravida id egestas '),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         comment('Ben Ipsum', '05-oct 2023', 4.2,
                             'Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi ut nisi odio. Nulla facilisi.Nunc risus massa, gravida id egestas '),
-                        SizedBox(
+                        const SizedBox(
                           height: 100,
                         ),
                       ],
@@ -274,13 +308,17 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
             ),
             Positioned(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: blueButton('GO TO CART'),
-              ),
               left: 0,
               right: 0,
               bottom: 15,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Cart.routename);
+                    },
+                    child: blueButton('GO TO CART')),
+              ),
             ),
           ],
         ),

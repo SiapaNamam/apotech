@@ -23,7 +23,7 @@ class Welcome extends StatelessWidget {
                 children: [
                   walkthrought('assets/login/welcome.png', 'Welcome to Apotech',
                       'Do you want some help with your \nhealth to get better life?'),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   InkWell(
@@ -39,11 +39,11 @@ class Welcome extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  login('facebook'),
+                  login('FACEBOOK'),
                   const SizedBox(
                     height: 5,
                   ),
-                  login('google'),
+                  login('GOOGLE'),
                   const SizedBox(
                     height: 10,
                   ),
@@ -54,7 +54,7 @@ class Welcome extends StatelessWidget {
                     child: Text(
                       'LOGIN',
                       style: TextStyle(
-                          color: Color(0xff090F47).withOpacity(0.45),
+                          color: const Color(0xff090F47).withOpacity(0.45),
                           fontFamily: 'Overpass-regular'),
                     ),
                   )

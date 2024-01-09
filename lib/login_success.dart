@@ -23,7 +23,7 @@ class _LoginSuccessState extends State<LoginSuccess> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(Icons.arrow_back)),
+              child: const Icon(Icons.arrow_back)),
         ),
         body: Padding(
           padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),

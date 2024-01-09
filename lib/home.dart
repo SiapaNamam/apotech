@@ -5,10 +5,6 @@ import 'package:apotech/widgets/home/widget_featured_brands.dart';
 import 'package:apotech/widgets/home/widget_top_categories.dart';
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
-  runApp(Home());
-}
-
 class Home extends StatefulWidget {
   static const routname = '/home';
   const Home({super.key});

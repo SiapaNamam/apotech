@@ -31,18 +31,18 @@ class _PaymentWidgetState extends State<PaymentWidget> {
               height: 40,
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(0xff090F47).withOpacity(0.1),
+                  color: const Color(0xff090F47).withOpacity(0.1),
                 ),
                 borderRadius: BorderRadius.circular(6),
               ),
               child: Image.asset('assets/checkout/logo_${widget.logo}.png'),
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Text(
               widget.judul,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'Overpass-bold',
                 color: Color(0xff090F47),
               ),
@@ -51,7 +51,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
         ),
         Radio(
           value: widget.judul,
-          activeColor: Color(0xff4157FF),
+          activeColor: const Color(0xff4157FF),
           groupValue: widget.isSelected ? widget.judul : null,
           onChanged: (value) {
             widget.onSelected();

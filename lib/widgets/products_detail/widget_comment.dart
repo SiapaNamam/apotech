@@ -6,7 +6,7 @@ Widget comment(String nama, String tanggal, double bintang, String tulisan) {
     decoration: BoxDecoration(
       border: Border(
         bottom: BorderSide(
-          color: Color(0xff090F47).withOpacity(0.1),
+          color: const Color(0xff090F47).withOpacity(0.1),
         ),
       ),
     ),
@@ -17,13 +17,13 @@ Widget comment(String nama, String tanggal, double bintang, String tulisan) {
           children: [
             Text(
               nama,
-              style: TextStyle(
+              style: const TextStyle(
                   fontFamily: 'Overpass-regular', color: Color(0xff090F47)),
             ),
             Text(
               tanggal,
               style: TextStyle(
-                  fontFamily: 'Overpass-regular', color: Color(0xff090F47).withOpacity(0.45)),
+                  fontFamily: 'Overpass-regular', color: const Color(0xff090F47).withOpacity(0.45)),
             ),
           ],
         ),
@@ -34,11 +34,11 @@ Widget comment(String nama, String tanggal, double bintang, String tulisan) {
               color: Color(0xffFFC000),
             ),
             Text('$bintang',style: TextStyle(
-                  fontFamily: 'Overpass-regular', color: Color(0xff090F47).withOpacity(0.45)),),
+                  fontFamily: 'Overpass-regular', color: const Color(0xff090F47).withOpacity(0.45)),),
           ],
         ),
         Text(tulisan,style: TextStyle(
-                  fontFamily: 'Overpass-light', color: Color(0xff090F47).withOpacity(0.45)),)
+                  fontFamily: 'Overpass-light', color: const Color(0xff090F47).withOpacity(0.45)),)
       ],
     ),
   );

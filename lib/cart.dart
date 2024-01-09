@@ -1,14 +1,10 @@
 import 'package:apotech/app.dart';
 import 'package:apotech/checkout.dart';
-import 'package:apotech/home.dart';
 import 'package:apotech/widgets/widget_blue_button.dart';
 import 'package:apotech/widgets/cart/widget_cart.dart';
 import 'package:apotech/widgets/cart/widget_payment_summary.dart';
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
-  runApp(const Cart());
-}
 
 class Cart extends StatefulWidget {
   static const routename = '/cart';

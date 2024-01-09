@@ -3,10 +3,6 @@ import 'package:apotech/home.dart';
 import 'package:apotech/profil.dart';
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
-  runApp(AppHome());
-}
-
 class AppHome extends StatefulWidget {
   static const routename = '/app';
   const AppHome({super.key});
